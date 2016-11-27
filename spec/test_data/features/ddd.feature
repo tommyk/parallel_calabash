@@ -1,10 +1,13 @@
 Feature: ddd.feature
 
   @tag1
-  Scenario:
+  Scenario: Scenario with name
+    Given I am just a simple step
 
   @tag1 @runnable
-  Scenario:
+  Scenario: Scenario with name
+    Given I am just a simple step
 
   @tag1 @runnable
-  Scenario:
+  Scenario: Scenario with name
+    Given I am just a simple step
