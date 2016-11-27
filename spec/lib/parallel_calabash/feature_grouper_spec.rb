@@ -122,6 +122,17 @@ describe ParallelCalabash::FeatureGrouper do
       [["spec/test_data/features/aaa.feature:12", "spec/test_data/features/aaa.feature:20"], ["spec/test_data/features/aaa.feature:24", "spec/test_data/features/bbb.feature:16"], ["spec/test_data/features/bbb.feature:20", "spec/test_data/features/ccc.feature:13"], ["spec/test_data/features/ddd.feature:8", "spec/test_data/features/ddd.feature:12"]]
     end
 
+    it 'should groups all @runnable scenario into randomized list' do
+      groups = ParallelCalabash::FeatureGrouper.scenario_groups(1, {:feature_folder => ["spec/test_data/features"], :cucumber_options => "--tags @runnable", :group_by_scenarios_randomize => true})
+      all_runnable_features = ["spec/test_data/features/aaa.feature:12", "spec/test_data/features/aaa.feature:20", "spec/test_data/features/aaa.feature:24", "spec/test_data/features/bbb.feature:16", "spec/test_data/features/bbb.feature:20", "spec/test_data/features/ccc.feature:13", "spec/test_data/features/ddd.feature:8", "spec/test_data/features/ddd.feature:12"]
+      expect(groups).not_to eq [all_runnable_features]
+
+      all_runnable_features.each do |f|
+        expect(groups[0].include? f).to eq true
+      end
+
+    end
+
   end
 
 

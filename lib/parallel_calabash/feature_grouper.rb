@@ -76,6 +76,7 @@ module ParallelCalabash
             end
           end
         end.flatten.compact
+        all_runnable_scenarios = all_runnable_scenarios.shuffle if options[:group_by_scenarios_randomize]
         groups = group_creator group_size,all_runnable_scenarios
       end
 

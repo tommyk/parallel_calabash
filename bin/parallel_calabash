@@ -77,6 +77,11 @@ def parse_arguments(arguments)
       options[:group_by_scenarios] = true
     end
 
+    opts.on("--group-by-scenarios-and-randomize", "Distribute equally as per scenarios and randomize order. This uses cucumber dry run") do
+      options[:group_by_scenarios] = true
+      options[:group_by_scenarios_randomize] = true
+    end
+
   end
 
   opt_parser.parse!(arguments)
