@@ -14,3 +14,4 @@
 *.a
 mkmf.log
 test_files
+parallel_calabash_dry_run.json
